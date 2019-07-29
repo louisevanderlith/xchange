@@ -1,26 +1,31 @@
 package routers
 
 import (
-	"fmt"
-	"strings"
-
-	"github.com/louisevanderlith/mango"
+	"github.com/louisevanderlith/droxolite"
 	"github.com/louisevanderlith/xchange/controllers"
 
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/plugins/cors"
-	"github.com/louisevanderlith/mango/control"
-	secure "github.com/louisevanderlith/secure/core"
-	"github.com/louisevanderlith/secure/core/roletype"
+	"github.com/louisevanderlith/droxolite/roletype"
 )
 
-func Setup(s *mango.Service, host string) {
-	ctrlmap := EnableFilters(s, host)
+func Setup(poxy *droxolite.Epoxy) {
+	//Buy
+	buyCtrl := &controllers.BuyController{}
+	buyGroup := droxolite.NewRouteGroup("buy", buyCtrl)
+	buyGroup.AddRoute("/", "POST", roletype.User, buyCtrl.Post)
+	poxy.AddGroup(buyGroup)
+
+	//Balance
+	balCtrl := &controllers.BalanceController{}
+	balGroup := droxolite.NewRouteGroup("balance", balCtrl)
+	balGroup.AddRoute("/", "GET", roletype.User, balCtrl.Get)
+	poxy.AddGroup(balGroup)
+	/*ctrlmap := EnableFilters(s, host)
 
 	beego.Router("/v1/buy", controllers.NewBuyCtrl(ctrlmap), "post:Post")
-	beego.Router("/v1/balance", controllers.NewBalanceCtrl(ctrlmap), "get:Get")
+	beego.Router("/v1/balance", controllers.NewBalanceCtrl(ctrlmap), "get:Get")*/
 }
 
+/*
 func EnableFilters(s *mango.Service, host string) *control.ControllerMap {
 	ctrlmap := control.CreateControlMap(s)
 
@@ -41,3 +46,4 @@ func EnableFilters(s *mango.Service, host string) *control.ControllerMap {
 
 	return ctrlmap
 }
+*/

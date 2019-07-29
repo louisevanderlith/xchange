@@ -1,16 +1,9 @@
 package controllers
 
-import "github.com/louisevanderlith/mango/control"
+import "github.com/louisevanderlith/droxolite/xontrols"
 
 type BuyController struct {
-	control.APIController
-}
-
-func NewBuyCtrl(ctrlmap *control.ControllerMap) *BuyController {
-	result := new(BuyController)
-	result.SetInstanceMap(ctrlmap)
-
-	return result
+	xontrols.APICtrl
 }
 
 func (req *BuyController) Post() {

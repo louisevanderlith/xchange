@@ -1,19 +1,12 @@
 package controllers
 
-import "github.com/louisevanderlith/mango/control"
+import "github.com/louisevanderlith/droxolite/xontrols"
 
 //BalanceController can only display the logged in user's balance
 type BalanceController struct {
-	control.APIController
-}
-
-func NewBalanceCtrl(ctrlmap *control.ControllerMap) *BalanceController {
-	result := new(BalanceController)
-	result.SetInstanceMap(ctrlmap)
-
-	return result
+	xontrols.APICtrl
 }
 
 func (req *BalanceController) Get() {
-	
+
 }
