@@ -13,4 +13,5 @@
 
 xchange
 
-db/
+db/*.husk
+!db/*.seed.json
