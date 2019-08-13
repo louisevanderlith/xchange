@@ -11,13 +11,13 @@ func Setup(poxy *droxolite.Epoxy) {
 	//Buy
 	buyCtrl := &controllers.BuyController{}
 	buyGroup := droxolite.NewRouteGroup("buy", buyCtrl)
-	buyGroup.AddRoute("/", "POST", roletype.User, buyCtrl.Post)
+	buyGroup.AddRoute("Purchase Something", "", "POST", roletype.User, buyCtrl.Post)
 	poxy.AddGroup(buyGroup)
 
 	//Balance
 	balCtrl := &controllers.BalanceController{}
 	balGroup := droxolite.NewRouteGroup("balance", balCtrl)
-	balGroup.AddRoute("/", "GET", roletype.User, balCtrl.Get)
+	balGroup.AddRoute("View Balances", "/", "GET", roletype.User, balCtrl.Get)
 	poxy.AddGroup(balGroup)
 	/*ctrlmap := EnableFilters(s, host)
 
