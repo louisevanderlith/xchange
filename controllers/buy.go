@@ -1,11 +1,14 @@
 package controllers
 
-import "github.com/louisevanderlith/droxolite/xontrols"
+import (
+	"net/http"
+
+	"github.com/louisevanderlith/droxolite/context"
+)
 
 type BuyController struct {
-	xontrols.APICtrl
 }
 
-func (req *BuyController) Post() {
-
+func (req *BuyController) Post(ctx context.Contexer) (int, interface{}) {
+	return http.StatusNotImplemented, nil
 }

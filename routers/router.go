@@ -1,22 +1,24 @@
 package routers
 
 import (
-	"github.com/louisevanderlith/droxolite"
 	"github.com/louisevanderlith/xchange/controllers"
 
+	"github.com/louisevanderlith/droxolite/mix"
+	"github.com/louisevanderlith/droxolite/resins"
 	"github.com/louisevanderlith/droxolite/roletype"
+	"github.com/louisevanderlith/droxolite/routing"
 )
 
-func Setup(poxy *droxolite.Epoxy) {
+func Setup(poxy resins.Epoxi) {
 	//Buy
 	buyCtrl := &controllers.BuyController{}
-	buyGroup := droxolite.NewRouteGroup("buy", buyCtrl)
+	buyGroup := routing.NewRouteGroup("buy", mix.JSON)
 	buyGroup.AddRoute("Purchase Something", "", "POST", roletype.User, buyCtrl.Post)
 	poxy.AddGroup(buyGroup)
 
 	//Balance
 	balCtrl := &controllers.BalanceController{}
-	balGroup := droxolite.NewRouteGroup("balance", balCtrl)
+	balGroup := routing.NewRouteGroup("balance", mix.JSON)
 	balGroup.AddRoute("View Balances", "/", "GET", roletype.User, balCtrl.Get)
 	poxy.AddGroup(balGroup)
 	/*ctrlmap := EnableFilters(s, host)
