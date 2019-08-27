@@ -14,7 +14,7 @@ func (c Currency) Valid() (bool, error) {
 	return husk.ValidateStruct(&c)
 }
 
-//GetBalance returns you token balance
+//GetBalance returns the entity's token balance
 func GetBalance(entityKey husk.Key) int64 {
 	if entityKey == husk.CrazyKey() {
 		return 0
