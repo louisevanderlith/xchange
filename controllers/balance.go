@@ -7,9 +7,9 @@ import (
 )
 
 //BalanceController can only display the logged in user's balance
-type BalanceController struct {
+type Balance struct {
 }
 
-func (req *BalanceController) Get(ctx context.Contexer) (int, interface{}) {
+func (x *Balance) Get(ctx context.Requester) (int, interface{}) {
 	return http.StatusNotImplemented, nil
 }

@@ -6,9 +6,13 @@ import (
 	"github.com/louisevanderlith/droxolite/context"
 )
 
-type BuyController struct {
+type Buy struct {
 }
 
-func (req *BuyController) Post(ctx context.Contexer) (int, interface{}) {
+func (x *Buy) Get(ctx context.Requester) (int, interface{}) {
+	return http.StatusMethodNotAllowed, nil
+}
+
+func (req *Buy) Create(ctx context.Requester) (int, interface{}) {
 	return http.StatusNotImplemented, nil
 }
