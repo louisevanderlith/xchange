@@ -10,6 +10,6 @@ import (
 type Balance struct {
 }
 
-func (x *Balance) Get(ctx context.Requester) (int, interface{}) {
+func (x *Balance) Get(c *gin.Context) {
 	return http.StatusNotImplemented, nil
 }

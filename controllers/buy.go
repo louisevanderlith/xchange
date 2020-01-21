@@ -9,10 +9,10 @@ import (
 type Buy struct {
 }
 
-func (x *Buy) Get(ctx context.Requester) (int, interface{}) {
+func (x *Buy) Get(c *gin.Context) {
 	return http.StatusMethodNotAllowed, nil
 }
 
-func (req *Buy) Create(ctx context.Requester) (int, interface{}) {
+func (req *Buy) Create(c *gin.Context) {
 	return http.StatusNotImplemented, nil
 }

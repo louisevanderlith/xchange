@@ -1,6 +1,9 @@
 package core
 
-import "github.com/louisevanderlith/husk"
+import (
+	"github.com/louisevanderlith/husk"
+	"github.com/louisevanderlith/husk/serials"
+)
 
 type context struct {
 	//Ledger
@@ -11,7 +14,7 @@ var ctx context
 
 func CreateContext() {
 	ctx = context{
-		Credits: husk.NewTable(new(Currency)),
+		Credits: husk.NewTable(Currency{}, serials.GobSerial{}),
 	}
 }
 
