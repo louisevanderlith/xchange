@@ -2,8 +2,6 @@ package controllers
 
 import (
 	"net/http"
-
-	"github.com/louisevanderlith/droxolite/context"
 )
 
 //BalanceController can only display the logged in user's balance
