@@ -1,6 +1,9 @@
 package core
 
-import "github.com/louisevanderlith/husk"
+import (
+	"errors"
+	"github.com/louisevanderlith/husk"
+)
 
 const unitValue = 75
 
@@ -10,20 +13,24 @@ type Currency struct {
 	Quantity  int64
 }
 
-func (c Currency) Valid() (bool, error) {
+func (c Currency) Valid() error {
 	return husk.ValidateStruct(&c)
 }
 
 //GetBalance returns the entity's token balance
-func GetBalance(entityKey husk.Key) int64 {
+func GetBalance(entityKey husk.Key) (int64, error) {
 	if entityKey == husk.CrazyKey() {
-		return 0
+		return 0, errors.New("invalid key")
 	}
 
-	coll := ctx.Credits.Find(1, 999, byEntity(entityKey))
+	coll, err := ctx.Credits.Find(1, 999, byEntity(entityKey))
+
+	if err != nil {
+		return 0, err
+	}
 
 	if !coll.Any() {
-		return 0
+		return 0, nil
 	}
 
 	itor := coll.GetEnumerator()
@@ -35,5 +42,5 @@ func GetBalance(entityKey husk.Key) int64 {
 		sum += curr.Quantity * unitValue
 	}
 
-	return sum
+	return sum, nil
 }

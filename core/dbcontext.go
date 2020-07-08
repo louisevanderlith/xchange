@@ -11,7 +11,7 @@ var ctx context
 
 func CreateContext() {
 	ctx = context{
-		Credits: husk.NewTable(new(Currency)),
+		Credits: husk.NewTable(Currency{}),
 	}
 }
 
