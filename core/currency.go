@@ -14,7 +14,7 @@ type Currency struct {
 }
 
 func (c Currency) Valid() error {
-	return husk.ValidateStruct(&c)
+	return husk.ValidateStruct(c)
 }
 
 //GetBalance returns the entity's token balance
