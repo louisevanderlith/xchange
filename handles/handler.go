@@ -7,13 +7,11 @@ import (
 
 func SetupRoutes() http.Handler {
 	/*
-	buyCtrl := &handles.Buy{}
-		balCtrl := &handles.Balance{}
-		e.JoinBundle("/", roletype.User, mix.JSON, buyCtrl, balCtrl)
+		buyCtrl := &handles.Buy{}
+			balCtrl := &handles.Balance{}
+			e.JoinBundle("/", roletype.User, mix.JSON, buyCtrl, balCtrl)
 	*/
 	r := mux.NewRouter()
-
-
 
 	return r
 }

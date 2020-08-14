@@ -2,14 +2,9 @@ package handles
 
 import (
 	"net/http"
-
-	"github.com/louisevanderlith/droxolite/context"
 )
 
 //BalanceController can only display the logged in user's balance
-type Balance struct {
-}
-
-func (x *Balance) Get(ctx context.Requester) (int, interface{}) {
-	return http.StatusNotImplemented, nil
+func GetBalance(w http.ResponseWriter, r *http.Request) {
+	http.Error(w, "", http.StatusNotImplemented)
 }
