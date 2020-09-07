@@ -1,4 +1,4 @@
 github.com/gorilla/mux v1.7.4 h1:VuZ8uybHlWmqV03+zRzdwKL4tUnIp1MAQtp1mIFE1bc=
 github.com/gorilla/mux v1.7.4/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
-github.com/louisevanderlith/husk v1.5.2 h1:AeE/OI6MX8P1neir+eifK9WMTMxJTfko2Ownh/7CraM=
-github.com/louisevanderlith/husk v1.5.2/go.mod h1:iEFeOL3LmBuXlHl3lhiq8yDfob2CNbv+p23ZjP5DORU=
+github.com/louisevanderlith/husk v1.7.0 h1:cAgZKiudufF29XWLjw/anbda8xbBJ5We8ew3/dT9Nic=
+github.com/louisevanderlith/husk v1.7.0/go.mod h1:iEFeOL3LmBuXlHl3lhiq8yDfob2CNbv+p23ZjP5DORU=

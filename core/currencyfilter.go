@@ -1,17 +1,17 @@
 package core
 
 import (
-	"github.com/louisevanderlith/husk"
+	"github.com/louisevanderlith/husk/hsk"
 )
 
-type currencyFilter func(obj *Currency) bool
+type currencyFilter func(obj Currency) bool
 
-func (f currencyFilter) Filter(obj husk.Dataer) bool {
-	return f(obj.(*Currency))
+func (f currencyFilter) Filter(obj hsk.Record) bool {
+	return f(obj.Data().(Currency))
 }
 
-func byEntity(entityKey husk.Key) currencyFilter {
-	return func(obj *Currency) bool {
+func byEntity(entityKey hsk.Key) currencyFilter {
+	return func(obj Currency) bool {
 		return obj.EntityKey == entityKey
 	}
 }

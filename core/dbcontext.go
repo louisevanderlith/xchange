@@ -4,7 +4,7 @@ import "github.com/louisevanderlith/husk"
 
 type context struct {
 	//Ledger
-	Credits husk.Tabler
+	Credits husk.Table
 }
 
 var ctx context

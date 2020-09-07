@@ -2,24 +2,25 @@ package core
 
 import (
 	"errors"
-	"github.com/louisevanderlith/husk"
+	"github.com/louisevanderlith/husk/hsk"
+	"github.com/louisevanderlith/husk/validation"
 )
 
 const unitValue = 75
 
 //Currency is the base credit used to "purchase" assets
 type Currency struct {
-	EntityKey husk.Key
+	EntityKey hsk.Key
 	Quantity  int64
 }
 
 func (c Currency) Valid() error {
-	return husk.ValidateStruct(c)
+	return validation.Struct(c)
 }
 
 //GetBalance returns the entity's token balance
-func GetBalance(entityKey husk.Key) (int64, error) {
-	if entityKey == husk.CrazyKey() {
+func GetBalance(entityKey hsk.Key) (int64, error) {
+	if entityKey == nil {
 		return 0, errors.New("invalid key")
 	}
 
@@ -37,7 +38,8 @@ func GetBalance(entityKey husk.Key) (int64, error) {
 
 	var sum int64
 	for itor.MoveNext() {
-		curr := itor.Current().Data().(*Currency)
+		rec := itor.Current().(hsk.Record)
+		curr := rec.Data().(Currency)
 
 		sum += curr.Quantity * unitValue
 	}
