@@ -39,7 +39,7 @@ func GetBalance(entityKey hsk.Key) (int64, error) {
 	var sum int64
 	for itor.MoveNext() {
 		rec := itor.Current().(hsk.Record)
-		curr := rec.Data().(Currency)
+		curr := rec.GetValue().(Currency)
 
 		sum += curr.Quantity * unitValue
 	}

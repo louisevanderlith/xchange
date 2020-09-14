@@ -7,7 +7,7 @@ import (
 type currencyFilter func(obj Currency) bool
 
 func (f currencyFilter) Filter(obj hsk.Record) bool {
-	return f(obj.Data().(Currency))
+	return f(obj.GetValue().(Currency))
 }
 
 func byEntity(entityKey hsk.Key) currencyFilter {
