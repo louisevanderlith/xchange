@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/louisevanderlith/xchange/handles"
 	"net/http"
 	"time"
@@ -9,10 +10,9 @@ import (
 )
 
 func main() {
-	//host := flag.String("host", "localhost", "Domain Host")
-	//authrty := flag.String("authority", "http://localhost:8086", "Authority Provider's URL")
-	//srcSecrt := flag.String("scopekey", "secret", "Secret used to validate against scopes")
-	//flag.Parse()
+	issuer := flag.String("issuer", "http://127.0.0.1:8080/auth/realms/mango", "OIDC Provider's URL")
+	audience := flag.String("audience", "xchange", "Token target 'aud'")
+	flag.Parse()
 
 	core.CreateContext()
 	defer core.Shutdown()
@@ -21,7 +21,7 @@ func main() {
 		ReadTimeout:  time.Second * 15,
 		WriteTimeout: time.Second * 15,
 		Addr:         ":8104",
-		Handler:      handles.SetupRoutes(),
+		Handler:      handles.SetupRoutes(*issuer, *audience),
 	}
 
 	err := srvr.ListenAndServe()

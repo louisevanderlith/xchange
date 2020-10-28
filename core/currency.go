@@ -6,25 +6,25 @@ import (
 	"github.com/louisevanderlith/husk/validation"
 )
 
-const unitValue = 75
+const unitValue = 60
 
 //Currency is the base credit used to "purchase" assets
 type Currency struct {
-	EntityKey hsk.Key
-	Quantity  int64
+	HeroKey  hsk.Key
+	Quantity int64
 }
 
 func (c Currency) Valid() error {
 	return validation.Struct(c)
 }
 
-//GetBalance returns the entity's token balance
-func GetBalance(entityKey hsk.Key) (int64, error) {
-	if entityKey == nil {
+//GetBalance returns the hero's token balance
+func GetBalance(heroKey hsk.Key) (int64, error) {
+	if heroKey == nil {
 		return 0, errors.New("invalid key")
 	}
 
-	coll, err := ctx.Credits.Find(1, 999, byEntity(entityKey))
+	coll, err := ctx.Credits.Find(1, 999, byHero(heroKey))
 
 	if err != nil {
 		return 0, err

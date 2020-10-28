@@ -10,8 +10,8 @@ func (f currencyFilter) Filter(obj hsk.Record) bool {
 	return f(obj.GetValue().(Currency))
 }
 
-func byEntity(entityKey hsk.Key) currencyFilter {
+func byHero(heroKey hsk.Key) currencyFilter {
 	return func(obj Currency) bool {
-		return obj.EntityKey == entityKey
+		return obj.HeroKey == heroKey
 	}
 }

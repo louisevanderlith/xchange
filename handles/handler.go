@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func SetupRoutes() http.Handler {
+func SetupRoutes(issuer, audience string) http.Handler {
 	/*
 		buyCtrl := &handles.Buy{}
 			balCtrl := &handles.Balance{}
