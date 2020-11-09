@@ -1,0 +1,9 @@
+name: mango_xchange
+version: 1.0.0
+description: Wrapper for Mango XChange API
+repository: https://github.com/louisevanderlith/xchange
+homepage: https://github.com/louisevanderlith/xchange
+environment:
+  sdk: '>=2.0.0 < 3.0.0'
+dependencies:
+  mango_ui: '^1.0.3'

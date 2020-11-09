@@ -15,3 +15,10 @@ xchange
 
 db/*.husk
 !db/*.seed.json
+
+.dart_tool
+build
+pubspec.lock
+.packages
+
+cmd/cmd
